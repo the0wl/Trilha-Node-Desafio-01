@@ -5,9 +5,6 @@ export const routes = [
         method: 'GET',
         path: buildRoutePath('/tasks'),
         handler: (req, res) => {
-            const { url } = req
-
-            console.log(`GET REQUEST AT ${url} = OK`)
             res.writeHead(200).end()
         } 
     },
@@ -15,9 +12,6 @@ export const routes = [
         method: 'POST',
         path: buildRoutePath('/task'),
         handler: (req, res) => {
-            const { url } = req
-
-            console.log(`POST REQUEST AT ${url} = OK`)
             res.writeHead(201).end()
         } 
     },
@@ -25,9 +19,6 @@ export const routes = [
         method: 'PUT',
         path: buildRoutePath('/task/:id'),
         handler: (req, res) => {
-            const { url } = req
-
-            console.log(`PUT REQUEST AT ${url} = OK`)
             res.writeHead(204).end()
         } 
     },
@@ -35,9 +26,6 @@ export const routes = [
         method: 'PATCH',
         path: buildRoutePath('/task/:id/complete'),
         handler: (req, res) => {
-            const { url } = req
-
-            console.log(`PATCH REQUEST AT ${url} = OK`)
             res.writeHead(204).end()
         } 
     },
@@ -45,9 +33,6 @@ export const routes = [
         method: 'DELETE',
         path: buildRoutePath('/task/:id'),
         handler: (req, res) => {
-            const { url } = req
-
-            console.log(`DELETE REQUEST AT ${url} = OK`)
             res.writeHead(204).end()
         } 
     }
