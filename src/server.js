@@ -8,7 +8,7 @@ const server = http.createServer(async (req, res) => {
     await json(req, res);
 
     console.log(`${method} REQUEST AT ${url}`)
-    console.log(req.body)
+    console.log('Body:', req.body)
 
     const route = routes.find(route => {
         return route.method === method

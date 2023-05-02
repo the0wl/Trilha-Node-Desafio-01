@@ -1,7 +1,9 @@
+import { buildRoutePath } from './utils/build-route-path.js'
+
 export const routes = [
     {
         method: 'GET',
-        path: '/tasks',
+        path: buildRoutePath('/tasks'),
         handler: (req, res) => {
             const { url } = req
 
@@ -11,7 +13,7 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: '/task',
+        path: buildRoutePath('/task'),
         handler: (req, res) => {
             const { url } = req
 
@@ -21,7 +23,7 @@ export const routes = [
     },
     {
         method: 'PUT',
-        path: '/task/:id',
+        path: buildRoutePath('/task/:id'),
         handler: (req, res) => {
             const { url } = req
 
@@ -31,7 +33,7 @@ export const routes = [
     },
     {
         method: 'PATCH',
-        path: '/task/:id/complete',
+        path: buildRoutePath('/task/:id/complete'),
         handler: (req, res) => {
             const { url } = req
 
@@ -41,7 +43,7 @@ export const routes = [
     },
     {
         method: 'DELETE',
-        path: '/task/:id',
+        path: buildRoutePath('/task/:id'),
         handler: (req, res) => {
             const { url } = req
 
