@@ -15,6 +15,8 @@ export const routes = [
         method: 'POST',
         path: buildRoutePath('/task'),
         handler: (req, res) => {
+            const { title, description } = req.body
+            database.insert('tasks', { title, description })
             res.writeHead(201).end()
         } 
     },
