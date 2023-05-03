@@ -52,4 +52,19 @@ export class Database {
         this.#persist()
         return data
     }
+
+    delete(table, id) {
+        if (!this.#database[table])
+            return { status: "Fail", message: 'The specified record does not exist.' }
+
+        const rowIndex = this.#database[table].findIndex(row => row.id === id) 
+
+        if (rowIndex < 0)
+            return { status: "Fail", message: 'The specified record does not exist.' }
+
+        this.#database[table].splice(rowIndex, 1)
+        this.#persist()
+
+        return { status: "Success", message: 'The record has been successfully deleted.' }
+    }
 }
