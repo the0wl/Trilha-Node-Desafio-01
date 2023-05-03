@@ -19,6 +19,20 @@ export class Database {
         fs.writeFile(databasePath, JSON.stringify(this.#database))
     }
 
+    select(table, filters) {
+        let data = this.#database[table] ?? []
+
+        if (filters) {
+            data = data.filter(row => {
+                return Object.entries(filters).some(([key, value]) => {
+                    return value ? row[key].toLowerCase().includes(value.toLowerCase()) : false
+                })
+            })
+        }
+
+        return data
+    }
+
     insert(table, data) {
         const created_at = new Date()
 
