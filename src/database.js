@@ -67,4 +67,30 @@ export class Database {
 
         return { status: "Success", message: 'The record has been successfully deleted.' }
     }
+
+    update(table, id, data) {
+        if (!this.#database[table])
+            return { status: "Fail", message: 'The specified record does not exist.' }
+
+        const rowIndex = this.#database[table].findIndex(row => row.id === id) 
+
+        if (rowIndex < 0)
+            return { status: "Fail", message: 'The specified record does not exist.' }
+
+        const { title, description, completed } = data
+        const updated = new Date();
+
+        if (completed) {
+            const currentValue = this.#database[table][rowIndex].completed_at
+            this.#database[table][rowIndex].completed_at = currentValue ? null : updated
+        } else {
+            this.#database[table][rowIndex].title = title ?? ''
+            this.#database[table][rowIndex].description = description ?? ''
+        }
+
+        this.#database[table][rowIndex].updated_at = updated
+        this.#persist()
+
+        return { status: "Success", message: 'The record has been successfully updated.' }
+    }
 }
