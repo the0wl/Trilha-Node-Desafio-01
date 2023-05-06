@@ -1,6 +1,6 @@
 {
   "name": "trilha-node-desafio-01",
-  "type": "module",  
+  "type": "module",
   "version": "1.0.0",
   "description": "Desafio referente ao módulo: Fundamentos do Node.js",
   "main": "src/server.js",
@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^5.3.10"
+  }
 }
